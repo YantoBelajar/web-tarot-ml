@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tebak kepribadian Tarot ML</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+
+
+</head>
+
+<body>
+    <div id="startPage">
+        <header>
+            <h1> Tebak Kepribadian Tarot ML</h1>
+            <p>pilih kartu untuk menebak kepirbadianmu</p>
+        </header>
+        <main>
+
+
+            <form action="" id="userForm">
+                <label for="Nickname">Nicname</label>
+                <input type="text" name="" id="nickname" placeholder="nickname ml kamu">
+                <label for="Rank">Rank Kamu</label>
+                <select name="" id="Rank" required>
+                    <option value="Warior">Warior</option>
+                    <option value="Elite">Elite</option>
+                    <option value="Master">Master</option>
+                    <option value="Grandmaster">Grandmaster</option>
+                    <option value="Epic">Epic</option>
+                    <option value="Legend">Legend</option>
+                    <option value="Mythic">Mythic</option>
+                    <option value="Honor">Honor</option>
+                    <option value="Glory">Glory</option>
+                    <option value="Immortal">Immortal</option>
+                </select>
+                <button type="submit">MULAI</button>
+
+
+            </form>
+
+        </main>
+    </div>
+    <!-- halaman pemilihan kartu -->
+    <section id="heroPage" hidden>
+
+        <h2>Pilih 2 kartu</h2>
+        <p>
+            Pilih 2 ksrtu berikut untuk menentukan sifatmu
+        </p>
+
+        <div id="cardContainer">
+            <!-- 8 Kartu -->
+            <div class="card" data-card="1">
+                <img src="asset/gambar belakang kartu/belakang kartu.jpg" alt="kartu 1">
+            </div>
+            <div class="card" data-card="2">
+                <img src="asset/gambar belakang kartu/belakang kartu.jpg" alt="kartu 2">
+            </div>
+            <div class="card" data-card="3">
+                <img src="asset/gambar belakang kartu/belakang kartu.jpg" alt="kartu 3">
+            </div>
+            <div class="card" data-card="4">
+                <img src="asset/gambar belakang kartu/belakang kartu.jpg" alt="kartu 4">
+            </div>
+            <div class="card" data-card="5">
+                <img src="asset/gambar belakang kartu/belakang kartu.jpg" alt="kartu 5">
+            </div>
+            <div class="card" data-card="6">
+                <img src="asset/gambar belakang kartu/belakang kartu.jpg" alt="kartu 6">
+            </div>
+            <div class="card" data-card="7">
+                <img src="asset/gambar belakang kartu/belakang kartu.jpg" alt="kartu 7">
+            </div>
+            <div class="card" data-card="8">
+                <img src="asset/gambar belakang kartu/belakang kartu.jpg" alt="kartu 8">
+            </div>
+
+        </div>
+
+        <p id="selectedCount">kartu dipilih: 0/2</p>
+
+        <button type="button" id="openButton" disabled>BUKA KARTU
+        </button>
+<button id="shuffleButton" type="button">ACAK KARTU</button>
+    </section>
+
+    <section id="resultPage" hidden>
+
+        <!-- header -->
+        <header id="resultHeader">
+            <button type="button" id="backButton">
+                Home
+            </button>
+            <h2>
+                Kepribadian Kamu Adalah
+            </h2>
+        </header>
+
+        <!-- panel hasil -->
+        <div id="resultPanel">
+            <div id="resultCards">
+            </div>
+
+            <!-- tempat penjelasan -->
+            <div id="resultDescription">
+                <h3>
+                    Penjelasan
+                </h3>
+            </div>
+        </div>
+
+
+    </section>
+
+
+
+</body>
+
+</html>
+
+
+<!-- shuffleButton.addEventListener("click", function() {
+
+    // membuat sallinan kartu
+    const shuffledCards = [...cards];
+
+    // mengacak posisi kartu
+    for (let i = shuffledCards.length - 1; i > 0; i--) {
+        const randomIndex = Math.floor(Math.random() * )
+    }
+})
+
+if (savedOrder && savedOrder.length === cards.length) {
+    // mengambil urutan kartu yang tersimpan
+    savedOrder.forEach(function(number) {
+
+        const card = cards.find(function(item) {
+            return Number(item.dataset.card) === number;
+        });
+
+        if (card) {
+            cardContainer.appendChild(card);
+        }
+    });
+}
+
+else {
+    // mengacak kartu
+    const shuffledCards = [...cards];
+    for (let i = shuffledCards.length - 1; i >0; i--) {
+        const randomIndex =Math.floor(Math.random() * (i + 1));
+        
+        [shuffledCards[i], shuffledCards[randomIndex]] =
+        [shuffledCards[randomIndex], shuffledCards[i]];
+    }
+
+
+// memasukkan kartu yang sudah ada ke html
+shuffledCards.forEach(function(card) {
+    cardContainer.appendChild(card);
+});
+
+// menhimpan urutan kartu
+sessionStorage.setItem(
+    "cardOrder", JSON.stringify(shuffledCards.map(card => Number(card.dataset.card)))
+);
+} -->

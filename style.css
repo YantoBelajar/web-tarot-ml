@@ -1,0 +1,464 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    background: #101D35;
+    color: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+
+    display: grid;
+    place-items: center;
+    text-align: center;
+}
+
+main {
+    width: 90%;
+    max-width: 450px;
+    padding: 40px 30px;
+
+    background: #1b3154;
+    border: 1px solid #2563eb;
+    border-radius: 18px;
+
+    text-align: center;
+    box-shadow: 0 0 30px rgba(37, 99, 235, 0.15);
+}
+
+h1 {
+    color: white;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+p {
+    color: #cbd5e1;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 12px;
+}
+
+label {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+input,
+select {
+    width: 100%;
+    padding: 13px;
+
+    background: #101D35;
+    color: white;
+
+    border: 1px solid #486581;
+    border-radius: 8px;
+
+    font-size: 14px;
+    outline: none;
+}
+
+
+input:focus,
+select:focus {
+    border-color: #60a5fa;
+}
+
+button {
+    margin-top: 20px;
+    padding: 14px;
+
+    background: #2563eb;
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: 0.3s;
+    align-self: center;
+}
+
+button:hover {
+    background: #60a5fa;
+    transform: translateY(-3px);
+}
+
+@media screen and (max-width: 768px) {
+    main {
+        width: 90%;
+        padding: 30px 20px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    main {
+        width: 92%;
+        padding: 25px 18px;
+    }
+
+    h1 {
+        font-size: 23px;
+    }
+
+    input,
+    select,
+    button {
+        font-size: 16px;
+        padding: 14px;
+    }
+}
+
+
+/* halaman pemilihan kartu */
+
+#heroPage {
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+#heroPage h2 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+#heropage p {
+    color: #cbd5e1;
+    margin-bottom: 25px;
+}
+
+/* wadah kartu */
+#cardContainer {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding: 30px 16px;
+    width: 100%;
+    scroll-snap-type: mandatory;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+#cardContainer::-webkit-scrollbar {
+    display: none;
+}
+
+/* masing masing kartu */
+.card {
+    flex: 0 0 160px;
+    height: 240px;
+    border: 3px solid #2563eb;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    box-sizing: border-box;
+
+    /* animasi saat kursor diarahkan ke kartu */
+    transition: transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+    box-shadow: 0 0 20px rgb(122, 2, 186)
+}
+
+.card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+
+
+}
+
+/* efek hover */
+.card:hover {
+    transform: scale(1.10);
+    border-color: #60a5fa;
+    box-shadow: 0 0 20px rgb(0, 17, 255)
+}
+
+/* hover kartu yang sudah dipilih */
+.card.selected:hover {
+    border-color: #f97316;
+    box-shadow: 0 0 20px rgba(255, 225, 255, 1)
+}
+
+/* respon untuk hp */
+@media screen and (max-width: 480px) {
+    .card {
+        flex: 0 0 135;
+    }
+
+    .card img {
+        flex: 0 0 135px;
+        height: 200px;
+    }
+}
+
+.card.selected {
+    border-color: #f97316;
+    box-shadow: 0 0 20px rgba(255, 225, 255, 1)
+}
+
+#selectedCount {
+    margin-top: 15px;
+    padding: 14px 30px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#openButton:disabled {
+    background: #486581;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* container hasil kartu */
+#resultContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+/* kartu hasil */
+.result-card {
+    width: 100%;
+    padding: 15px;
+    background: #1b3154;
+    border: 1px solid #256325;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.15);
+    box-sizing: border-box;
+}
+
+/* gambar hero */
+.result-card img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* nama hero */
+.result-card h3 {
+    margin-top: 15px;
+    color: white;
+}
+
+/* deskripsi hero */
+.result-card p {
+    margin-top: 10px;
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+/* buat hp */
+@media screen and (max-width: 600px) {
+
+    #resultContainer {
+        grid-template-columns: 1fr;
+        width: 90%;
+        gap: 20px;
+    }
+
+    .result-card {
+        width: 100%;
+    }
+}
+
+/* halaman hasil */
+#resultPage {
+    width: 100%;
+    min-height: 100vh;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+/* header hasil */
+#resultHeader {
+    width: 100%;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+#resultHeader h2 {
+    color: white;
+    font-size: 28px;
+}
+
+/* tombol kembali */
+#backbutton {
+    position: absolute;
+
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+    padding: 10px 18px;
+}
+
+/* panel utama */
+#resultPanel {
+    width: 90%;
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 35px;
+    background: #1b3154;
+    border: 1px solid #2563eb;
+    border-radius: 25px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* dua kartu berjejer */
+#resultCards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 220px));
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+/* hasil kartu */
+.result-card {
+    width: 100%;
+    padding: 12px;
+    background: #101D35;
+    border: 1px solid #2563eb;
+    border-radius: 15px;
+    text-align: center;
+}
+
+/* gambar hero */
+.result-card img {
+    display: block;
+    width: 100%;
+    height: 280px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+/* nama hero */
+.result-card h3 {
+    margin-top: 12px;
+    color: white;
+    font-size: 18px;
+}
+
+/* penjelasan */
+#resultDescriptions {
+    width: 100%;
+    padding: 25px;
+    margin-top: 30px;
+    background: white;
+    color: #101D35;
+    border-radius: 18px;
+    text-align: left;
+}
+
+#resultDescriptions h3 {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#resultDescriptions p {
+    margin-bottom: 10px;
+    color: #101D35;
+    font-size: 15px;
+}
+
+@media screen and (max-width: 600px) {
+    #resultPage {
+        padding: 15px;
+        width: 95%;
+    }
+
+    #resultHeader h2 {
+        font-size: 21px;
+        padding-top: 55px;
+    }
+
+    #backButton {
+        top: 0;
+        transform: none;
+    }
+
+    #resultPanel {
+        width: 100%;
+        padding: 18px 12px;
+    }
+
+    #resultCards {
+        gap: 12px;
+        grid-template-columns: repeat(2, minimax(0, 1fr));
+    }
+
+    .result-cards {
+        padding: 7px;
+    }
+
+    .result-card img {
+        height: 180px;
+    }
+
+    .result-card h3 {
+        font-size: 14px;
+    }
+
+    #resultDescription {
+        padding: 18px;
+    }
+}
+
+#shuffleButton {
+    background-color:  #1b3154;
+    color: white;
+    border: 2px solid #2563eb;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0,3s;
+}
+
+#shuffleButton:hover {
+    background-color: #2563eb;
+    box-shadow: 0 0 12px #2563eb;
+}
