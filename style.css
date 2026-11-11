@@ -478,3 +478,57 @@ button:hover {
     background-color: #2563eb;
     box-shadow: 0 0 12px #2563eb;
 }
+
+@media screen and (max-width: 600px) {
+    body {
+        width: 100%;
+        overflow-x: hidden;
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    #heroPage {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        margin: 25px 0;
+        padding: 0 12px;
+        box-sizing: border-box;
+    }
+
+    #heroPage h2 {
+        font-size: 25px;
+    }
+
+    #heroPage p {
+        max-width: 100%;
+        padding: 0 8px;
+        font-size: 14px;
+        overflow-wrap: break-word;
+    }
+
+    #cardContainer {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        overflow-x: auto;
+        justify-content: flex-start;
+        gap: 12px;
+        padding: 25px 8px;
+    }
+
+    .card {
+        flex: 0 0 135px;
+        height: 200px;
+    }
+
+    #openButton, 
+    #shuffleButton {
+        width: 45%;
+        max-width: 200px;
+        padding: 12px 8px;
+        margin: 12px 2px;
+        font-size: 14px;
+        box-sizing: border-box;
+    }
+}
